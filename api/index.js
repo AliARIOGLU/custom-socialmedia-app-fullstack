@@ -1,5 +1,4 @@
 import Express from "express";
-const app = Express();
 
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
@@ -12,6 +11,8 @@ import storyRoutes from "./routes/stories.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
+
+const app = Express();
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);

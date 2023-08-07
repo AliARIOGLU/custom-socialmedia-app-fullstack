@@ -11,10 +11,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
+import EmptyUser from "../../assets/emptyuser.png";
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
+
+  console.log(currentUser);
 
   return (
     <div className="navbar">
@@ -44,7 +47,7 @@ const Navbar = () => {
             className="user-link"
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            <img src={"/upload/" + currentUser.profilePic} alt="" />
+            <img src={EmptyUser} alt="" />
             <span>{currentUser.name}</span>
           </Link>
         </div>
