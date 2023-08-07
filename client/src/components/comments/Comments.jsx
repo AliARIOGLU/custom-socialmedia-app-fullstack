@@ -12,7 +12,7 @@ const Comments = ({ postId, setCommentCount }) => {
 
   const { isLoading, data } = useQuery(["comments"], () =>
     makeRequest.get("/comments?postId=" + postId).then((res) => {
-      setCommentCount(res?.data?.length);
+      setCommentCount(res.data.length);
       return res.data;
     })
   );

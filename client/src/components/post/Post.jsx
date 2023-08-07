@@ -14,7 +14,7 @@ import { AuthContext } from "../../context/authContext";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
-  const [commentCount, setCommentCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
