@@ -5,13 +5,14 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import moment from "moment";
 
-const Comments = ({ postId }) => {
+const Comments = ({ postId, setCommentCount }) => {
   const [desc, setDesc] = useState("");
 
   const { currentUser } = useContext(AuthContext);
 
-  const { isLoading, error, data } = useQuery(["comments"], () =>
+  const { isLoading, data } = useQuery(["comments"], () =>
     makeRequest.get("/comments?postId=" + postId).then((res) => {
+      setCommentCount(res?.data?.length);
       return res.data;
     })
   );
